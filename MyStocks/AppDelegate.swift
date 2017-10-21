@@ -88,6 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 
+extension AppDelegate {
+    static var alphaVantageAPIKey: String { return "5UQVQD443YXF1VGP" }
+}
