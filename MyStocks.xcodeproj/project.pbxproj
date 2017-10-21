@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		784246F61F9BC1FE003451F3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784246F51F9BC1FE003451F3 /* Extensions.swift */; };
 		784246F71F9BC1FE003451F3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784246F51F9BC1FE003451F3 /* Extensions.swift */; };
+		784246F91F9BC2C4003451F3 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784246F81F9BC2C4003451F3 /* Stock.swift */; };
+		784246FA1F9BC2C4003451F3 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784246F81F9BC2C4003451F3 /* Stock.swift */; };
 		7849BE7C1F9B57DA004EA035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849BE7B1F9B57DA004EA035 /* AppDelegate.swift */; };
 		7849BE811F9B57DA004EA035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7849BE7F1F9B57DA004EA035 /* Main.storyboard */; };
 		7849BE841F9B57DA004EA035 /* MyStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7849BE821F9B57DA004EA035 /* MyStocks.xcdatamodeld */; };
@@ -40,6 +42,7 @@
 		390CFE968EFFCBBE1B3AFC45 /* Pods_MyStocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyStocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1A7E940C81DF2893F8AA98 /* Pods-MyStocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyStocks.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyStocks/Pods-MyStocks.release.xcconfig"; sourceTree = "<group>"; };
 		784246F51F9BC1FE003451F3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		784246F81F9BC2C4003451F3 /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		7849BE781F9B57DA004EA035 /* MyStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7849BE7B1F9B57DA004EA035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7849BE801F9B57DA004EA035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				78A83A491F9B59D1009D76BE /* MainView.swift */,
 				7849BE7F1F9B57DA004EA035 /* Main.storyboard */,
 				784246F51F9BC1FE003451F3 /* Extensions.swift */,
+				784246F81F9BC2C4003451F3 /* Stock.swift */,
 				7849BE7B1F9B57DA004EA035 /* AppDelegate.swift */,
 				7849BE851F9B57DA004EA035 /* Assets.xcassets */,
 				7849BE871F9B57DA004EA035 /* LaunchScreen.storyboard */,
@@ -304,6 +308,7 @@
 			files = (
 				7849BE841F9B57DA004EA035 /* MyStocks.xcdatamodeld in Sources */,
 				78A83A5C1F9B8425009D76BE /* MainPresenter.swift in Sources */,
+				784246F91F9BC2C4003451F3 /* Stock.swift in Sources */,
 				78A83A4A1F9B59D1009D76BE /* MainView.swift in Sources */,
 				78A83A551F9B6D05009D76BE /* AlphaVantageMap.swift in Sources */,
 				78A83A5A1F9B825F009D76BE /* AlphaVantageAPI.swift in Sources */,
@@ -319,6 +324,7 @@
 				7872618F1F9B863B003F1423 /* AlphaVantageAPI.swift in Sources */,
 				784246F71F9BC1FE003451F3 /* Extensions.swift in Sources */,
 				7849BE941F9B57DA004EA035 /* MyStocksTests.swift in Sources */,
+				784246FA1F9BC2C4003451F3 /* Stock.swift in Sources */,
 				78A83A5D1F9B8425009D76BE /* MainPresenter.swift in Sources */,
 				7872618E1F9B8638003F1423 /* AlphaVantageMap.swift in Sources */,
 				78A83A4B1F9B59D1009D76BE /* MainView.swift in Sources */,
