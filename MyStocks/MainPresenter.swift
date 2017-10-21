@@ -3,35 +3,52 @@ import Foundation
 class MainPresenter {
     
     private var cachedFormattedStocks = [String: FormattedStock]()
+    private var currentlyActiveStockRequests = Set<String>()
     private var dailyAPI = AlphaVantageAPIDaily()
     private var intradayAPI = AlphaVantageAPIIntraday()
     
     func getStock(stock: Stock, completionClosure: @escaping (FormattedStock) -> ()) {
         guard let symbol = stock.symbol else { return }
+        guard !self.currentlyActiveStockRequests.contains(symbol) else { return }
+        
         if cachedFormattedStocks[symbol] != nil {
             // if already cached, use it
             completionClosure(cachedFormattedStocks[symbol]!)
             return
         }
-            
+        
+        self.currentlyActiveStockRequests.insert(symbol)
+        
         let formattedStock = FormattedStock()
-        self.cachedFormattedStocks[symbol] = formattedStock
         formattedStock.formatSymbolText(rawSymbol: symbol)
         formattedStock.formatNameText(rawName: stock.name)
         
         self.dailyAPI.call(symbol: symbol, resultClosure: { [weak self] result in
-            guard let timeSeries = result.timeSeries else { return }
+            guard let timeSeries = result.timeSeries else {
+                self?.finishAPIcall(symbol: symbol)
+                return
+            }
             let sortedTimeSeries = timeSeries.sorted{ Date.getDateFromString(dateString: $0.key)! < Date.getDateFromString(dateString: $1.key)! }
             formattedStock.formatTrend(priceHistory: sortedTimeSeries)
             formattedStock.formatGraphData(priceHistory: sortedTimeSeries)
             
             self?.intradayAPI.call(symbol: symbol, resultClosure: { result in
-                guard let timeSeries = result.timeSeries else { return }
+                guard let timeSeries = result.timeSeries else {
+                    self?.finishAPIcall(symbol: symbol)
+                    return
+                }
                 let sortedTimeSeries = timeSeries.sorted{ Date.getDateFromString(dateString: $0.key)! < Date.getDateFromString(dateString: $1.key)! }
                 formattedStock.formatCurrentPrice(priceHistory: sortedTimeSeries)
+                
+                self?.cachedFormattedStocks[symbol] = formattedStock
+                self?.finishAPIcall(symbol: symbol)
                 completionClosure(formattedStock)
             })
         })
+    }
+    
+    private func finishAPIcall(symbol: String) {
+        self.currentlyActiveStockRequests.remove(symbol)
     }
 }
 
