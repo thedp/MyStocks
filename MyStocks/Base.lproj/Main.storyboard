@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Stocks-->
+        <!--Awesome Stocks-->
         <scene sceneID="enw-rN-Yo5">
             <objects>
-                <tableViewController title="Stocks" id="3DO-8h-n3s" customClass="MainView" customModule="MyStocks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3DO-8h-n3s" customClass="MainView" customModule="MyStocks" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="308" sectionHeaderHeight="28" sectionFooterHeight="28" id="4rI-Qq-VCO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="307.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading name..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2I-Pd-Pgb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2I-Pd-Pgb">
                                             <rect key="frame" x="16" y="8" width="134" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="byo-hT-wW6"/>
@@ -36,7 +36,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading price..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-pD-UJP">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-pD-UJP">
                                             <rect key="frame" x="222" y="8" width="134" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="134" id="hLo-L5-zMi"/>
@@ -46,7 +46,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4q-8v-aKs">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4q-8v-aKs">
                                             <rect key="frame" x="16" y="43" width="134" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="134" id="6cX-od-zjq"/>
@@ -57,10 +57,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-8P-vgk" userLabel="Bottom View">
-                                            <rect key="frame" x="0.0" y="89" width="375" height="191"/>
+                                            <rect key="frame" x="0.0" y="89" width="375" height="195"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading last 7 days..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsh-Wk-3Jh">
-                                                    <rect key="frame" x="109" y="85" width="156" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading history graph..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsh-Wk-3Jh">
+                                                    <rect key="frame" x="99" y="87" width="176" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                                 <constraint firstItem="Wsh-Wk-3Jh" firstAttribute="centerY" secondItem="Ftb-8P-vgk" secondAttribute="centerY" id="5i2-SG-rQk"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-K4-qIl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="trend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-K4-qIl">
                                             <rect key="frame" x="222" y="43" width="134" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="134" id="Fi1-Mz-v37"/>
@@ -84,7 +84,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ftb-8P-vgk" secondAttribute="bottom" constant="19.5" id="AF0-HP-PHY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ftb-8P-vgk" secondAttribute="bottom" constant="15.5" id="AF0-HP-PHY"/>
                                         <constraint firstAttribute="topMargin" secondItem="c2I-Pd-Pgb" secondAttribute="top" id="DeS-4m-Jrh"/>
                                         <constraint firstItem="mji-K4-qIl" firstAttribute="leading" secondItem="HTr-pD-UJP" secondAttribute="trailing" constant="-134" id="FVB-gT-h7V"/>
                                         <constraint firstItem="Ftb-8P-vgk" firstAttribute="top" secondItem="QWF-Ir-gof" secondAttribute="topMargin" constant="81" id="OrQ-z9-mn6"/>
@@ -112,7 +112,7 @@
                             <outlet property="delegate" destination="3DO-8h-n3s" id="HcN-Rk-3Zw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="t0t-9k-fjP"/>
+                    <navigationItem key="navigationItem" title="Awesome Stocks" id="t0t-9k-fjP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nh5-Q0-eqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

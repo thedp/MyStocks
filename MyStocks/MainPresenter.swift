@@ -74,7 +74,7 @@ class FormattedStock {
             self.graphPoints.append(Double(value.close ?? "0") ?? 0)
         }
         let toRange = graphAxisLabels.count - 1
-        let fromRange = graphAxisLabels.count - 7
+        let fromRange = graphAxisLabels.count - 10
         self.graphAxisLabels = Array(self.graphAxisLabels[fromRange..<toRange])
         self.graphPoints = Array(self.graphPoints[fromRange..<toRange])
     }
@@ -99,6 +99,6 @@ class FormattedStock {
         guard let first = priceHistory?[lastIndex].value.close, let second = priceHistory?[lastIndex - 1].value.close else { return }
         let delta =  (Double(first) ?? 0) - (Double(second) ?? 0)
         self.trendDirection = delta >= 0
-        self.trendText = "\(self.trendDirection ? "+" : "")\(String(format: "%.1f", delta))"
+        self.trendText = "\(self.trendDirection ? "+" : "")\(String(format: "%.1f", delta)) \(self.trendDirection ? "🚀" : "🔻")"
     }
 }

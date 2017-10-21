@@ -24,6 +24,7 @@ class MainView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as! StockCell
         
+        cell.loadingIndication()
         mp.getStock(stock: stocksList[indexPath.row], completionClosure: { formattedStock in
             cell.nameLabel.text = formattedStock.nameText
             cell.symbolLabel.text = formattedStock.symbolText
@@ -45,6 +46,13 @@ class StockCell: UITableViewCell, ScrollableGraphViewDataSource {
     @IBOutlet weak var trendLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
     
+    func loadingIndication() {
+        self.nameLabel.text = "loading..."
+        self.symbolLabel.text = ""
+        self.priceLabel.text = ""
+        self.trendLabel.text = ""
+    }
+    
     func trendLabelColor(trendDirection: Bool) {
         self.trendLabel.textColor = trendDirection ? .green : .red
     }
@@ -59,6 +67,12 @@ class StockCell: UITableViewCell, ScrollableGraphViewDataSource {
         
         let graph = ScrollableGraphView(frame: self.bottomView.bounds, dataSource: self)
         let linePlot = LinePlot(identifier: "line") // Identifier should be unique for each plot.
+        linePlot.lineColor = .black
+        linePlot.shouldFill = true
+        linePlot.fillType = .gradient
+        linePlot.fillGradientStartColor = .lightGray
+        linePlot.fillGradientEndColor = .white
+        
         let referenceLines = ReferenceLines()
         graph.addPlot(plot: linePlot)
         graph.addReferenceLines(referenceLines: referenceLines)
