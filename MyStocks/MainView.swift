@@ -62,24 +62,30 @@ class StockCell: UITableViewCell, ScrollableGraphViewDataSource {
     var xAxisLabels: [String]?
     
     func setGraph(linePlotData: [Double], xAxisLabels: [String]) {
-        self.linePlotData = linePlotData
-        self.xAxisLabels = xAxisLabels
-        
-        let graph = ScrollableGraphView(frame: self.bottomView.bounds, dataSource: self)
-        let linePlot = LinePlot(identifier: "line") // Identifier should be unique for each plot.
-        linePlot.lineColor = .black
-        linePlot.shouldFill = true
-        linePlot.fillType = .gradient
-        linePlot.fillGradientStartColor = .lightGray
-        linePlot.fillGradientEndColor = .white
-        
-        let referenceLines = ReferenceLines()
-        graph.addPlot(plot: linePlot)
-        graph.addReferenceLines(referenceLines: referenceLines)
-        graph.rangeMax = self.linePlotData?.max() ?? 0
-        graph.rangeMin = self.linePlotData?.min() ?? 0
-        graph.shouldAnimateOnStartup = false
-        self.bottomView.addSubview(graph)
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.linePlotData = linePlotData
+            self?.xAxisLabels = xAxisLabels
+
+            guard let bounds = self?.bottomView.bounds else { return }
+            let graph = ScrollableGraphView(frame: bounds, dataSource: self!)
+            let linePlot = LinePlot(identifier: "line")
+            linePlot.lineColor = .black
+            linePlot.shouldFill = true
+            linePlot.fillType = .gradient
+            linePlot.fillGradientStartColor = .lightGray
+            linePlot.fillGradientEndColor = .white
+
+            let referenceLines = ReferenceLines()
+            graph.addPlot(plot: linePlot)
+            graph.addReferenceLines(referenceLines: referenceLines)
+            graph.rangeMax = self?.linePlotData?.max() ?? 0
+            graph.rangeMin = self?.linePlotData?.min() ?? 0
+            graph.shouldAnimateOnStartup = false
+
+            DispatchQueue.main.async { [weak self] in
+                self?.bottomView.addSubview(graph)
+            }
+        }
     }
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
