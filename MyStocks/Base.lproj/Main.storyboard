@@ -56,7 +56,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-8P-vgk" userLabel="GraphView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-8P-vgk" userLabel="Bottom View">
                                             <rect key="frame" x="0.0" y="89" width="375" height="219"/>
                                             <color key="backgroundColor" red="0.53983347039999996" green="0.88399465460000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
@@ -87,14 +87,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="graphView" destination="Ftb-8P-vgk" id="wSo-0Z-DcX"/>
-                                    <outlet property="name" destination="c2I-Pd-Pgb" id="haj-js-Eqz"/>
+                                    <outlet property="bottomView" destination="Ftb-8P-vgk" id="bRG-iv-ZIn"/>
                                     <outlet property="nameLabel" destination="c2I-Pd-Pgb" id="zRe-IO-ZhL"/>
-                                    <outlet property="price" destination="HTr-pD-UJP" id="Ki2-lq-Bhy"/>
                                     <outlet property="priceLabel" destination="HTr-pD-UJP" id="ryp-Ah-5FQ"/>
-                                    <outlet property="symbol" destination="c4q-8v-aKs" id="3tU-UV-jPg"/>
                                     <outlet property="symbolLabel" destination="c4q-8v-aKs" id="Exe-jo-B4E"/>
-                                    <outlet property="trend" destination="mji-K4-qIl" id="BxI-vw-Sme"/>
                                     <outlet property="trendLabel" destination="mji-K4-qIl" id="hJY-Yl-rak"/>
                                 </connections>
                             </tableViewCell>
