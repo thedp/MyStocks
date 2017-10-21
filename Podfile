@@ -7,6 +7,7 @@ target 'MyStocks' do
 
   # Pods for Dreamland_test
   pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireObjectMapper'
   pod 'ScrollableGraphView'
 
 end

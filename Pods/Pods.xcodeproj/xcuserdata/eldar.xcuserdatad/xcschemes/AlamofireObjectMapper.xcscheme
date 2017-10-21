@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8E11C6C008D2ECD16AD56D4465BB3D0B'
-               BlueprintName = 'ScrollableGraphView'
+               BlueprintIdentifier = '9502FB01641FBABB78522037E882757B'
+               BlueprintName = 'AlamofireObjectMapper'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ScrollableGraphView.framework'>
+               BuildableName = 'AlamofireObjectMapper.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
