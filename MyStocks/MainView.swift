@@ -1,22 +1,16 @@
 import UIKit
 import ScrollableGraphView
+import Alamofire
 
 class MainView: UITableViewController {
-    
-    var data: [[Double]] = [[1,2,3,4], [40,2,3,4]]  // TODO: testing
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.tableView.reloadData()  // TODO: testing
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    let mp = MainPresenter()
+    var stocksList = [Stock(name: "S&P 500", symbol: "INX"),
+                Stock(name: "Dow Jones", symbol: "DJIA"),
+                Stock(name: "Nasdaq", symbol: "NDAQ"),
+                Stock(name: "Amazon", symbol: "AMZN"),
+                Stock(name: "Alphabet", symbol: "GOOGL")
+    ]
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -24,14 +18,20 @@ class MainView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2  // TODO: testing
+        return self.stocksList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath) as! StockCell
-
-        cell.nameLabel.text = "test"
-        cell.setGraph(linePlotData: self.data[indexPath.row], xAxisLabels: ["a", "b", "c", "d"])
+        
+        mp.getStock(stock: stocksList[indexPath.row], completionClosure: { formattedStock in
+            cell.nameLabel.text = formattedStock.nameText
+            cell.symbolLabel.text = formattedStock.symbolText
+            cell.priceLabel.text = formattedStock.currentPriceText
+            cell.trendLabel.text = formattedStock.trendText
+            cell.trendLabelColor(trendDirection: formattedStock.trendDirection)
+            cell.setGraph(linePlotData: formattedStock.graphPoints, xAxisLabels: formattedStock.graphAxisLabels)
+        })
         
         return cell
     }
@@ -45,6 +45,11 @@ class StockCell: UITableViewCell, ScrollableGraphViewDataSource {
     @IBOutlet weak var trendLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
     
+    func trendLabelColor(trendDirection: Bool) {
+        self.trendLabel.textColor = trendDirection ? .green : .red
+    }
+    
+    // MARK: - graph related
     var linePlotData: [Double]?
     var xAxisLabels: [String]?
     
@@ -57,6 +62,9 @@ class StockCell: UITableViewCell, ScrollableGraphViewDataSource {
         let referenceLines = ReferenceLines()
         graph.addPlot(plot: linePlot)
         graph.addReferenceLines(referenceLines: referenceLines)
+        graph.rangeMax = self.linePlotData?.max() ?? 0
+        graph.rangeMin = self.linePlotData?.min() ?? 0
+        graph.shouldAnimateOnStartup = false
         self.bottomView.addSubview(graph)
     }
     
@@ -79,10 +87,3 @@ class StockCell: UITableViewCell, ScrollableGraphViewDataSource {
         return self.linePlotData?.count ?? 0
     }
 }
-
-
-
-
-
-
-// TODO: remove
